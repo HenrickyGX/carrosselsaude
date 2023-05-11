@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css"
+        integrity="sha512-EqP2dRk4pNgvgQfWf55zA3TVHQD26xv2qkq7b3PMNF3yQc18FgDmxDYt1T+34tDLPg++tjThzjz0sIqj6wW4Uw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="estilo.css">
+   
+    <title>Carrossel de Notícias</title>
+
+</head>
+<body>
+    <div class="carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <a href="https://corumba.ms.gov.br/noticias/acompanhado-do-prefeito-secretario-estadual-visita-upa-e-elogia-estrutura-do-cem" target="_blank">
+                    <img src="https://corumba.ms.gov.br/public/uploads/galeria/2023/SAUDE/SECRETARIOESTADUALDESAUDEVISITA04052023/VISITASECRETARIOESTADUALDESAUDEUPAPRONTOSOCORRO/Foto%20Ren%C3%AA%20Marcio%20Carneiro%28Visita%20do%20Secret%C3%A1rio%20Estadual%20de%20Sa%C3%BAde%29%20%2829%29.jpg" alt="Slide 1">
+                    <h2 class="carousel-title">Acompanhado do prefeito, secretário estadual visita UPA e elogia estrutura do CEM</h2>
+                </a>
+            </div>
+            <div class="carousel-slide">
+                <a href="https://corumba.ms.gov.br/noticias/prefeitura-abre-tres-postos-para-vacinacao-neste-sabado-dia-06" target="_blank">
+                    <img src="https://corumba.ms.gov.br/public/uploads/galeria/2023/SAUDE/VACINAGRIPE/IMG_5426-copiar.jpg" alt="Slide 2">
+                    <h2 class="carousel-title">Prefeitura abre três postos para vacinação neste sábado, dia 06</h2>
+                </a>
+            </div>
+            <div class="carousel-slide">
+                <a href="https://corumba.ms.gov.br/noticias/prefeito-entrega-castramovel-para-ccz-unidade-vai-percorrer-bairros-com-servico-de-esterilizacao">
+                    <img src="https://corumba.ms.gov.br/public/uploads/galeria/2023/SAUDE/CASTRAMOVELENTREGA/IMG_5924%20copiar.jpg" alt="Slide 3">
+                    <h2 class="carousel-title">Prefeito entrega Castramóvel para CCZ; unidade vai percorrer bairros com serviço de esterilização</h2>
+                </a>
+            </div>
+        </div>
+        
+        <button class="carousel-prev">&#8249;</button>
+        <button class="carousel-next">&#8250;</button>
+        <div class="more-news">
+            <a href="https://corumba.ms.gov.br/noticias/category/2" target="_blank">Veja mais notícias</a>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    const carousel = document.querySelector('.carousel');
+    const carouselContainer = document.querySelector('.carousel-container');
+    const carouselSlides = document.querySelectorAll('.carousel-slide');
+    const carouselPrev = document.querySelector('.carousel-prev');
+    const carouselNext = document.querySelector('.carousel-next');
+    const carouselMore = document.querySelector('.more-news');
+    let currentPosition = 0;
+
+    function moveCarousel() {
+        currentPosition = currentPosition < carouselSlides.length - 1 ? currentPosition + 1 : 0;
+        carouselContainer.style.transform = `translateX(-${currentPosition * 33.333333}%)`;
+    }
+
+    carouselPrev.addEventListener('click', () => {
+        currentPosition = currentPosition > 0 ? currentPosition - 1 : carouselSlides.length - 1;
+        carouselContainer.style.transform = `translateX(-${currentPosition * 33.333333}%)`;
+    });
+
+    carouselNext.addEventListener('click', () => {
+        moveCarousel();
+    });
+
+    setInterval(() => {
+        moveCarousel();
+    }, 5000);
+</script>
+
+</html>
